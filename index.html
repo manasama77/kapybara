@@ -165,6 +165,11 @@ main {
             min-width: 70px;
             text-align: center;
             font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.3rem;
+            
             
             @media (pointer: coarse) {
                 transform: scale(0.9);
@@ -174,8 +179,14 @@ main {
                 font-size: 0.666rem;
             }
 
+            img {
+                width: 0.666rem;
+                height: 0.666rem;
+            }
+
             &:hover {
                 transform: scale(1);
+                rotate: -4deg;
             }
 
             @media (min-width: 768px) {
@@ -186,6 +197,11 @@ main {
 
                 i {
                     font-size: 1.10666rem;
+                }
+
+                img {
+                    width: 1.10666rem;
+                    height: 1.10666rem;
                 }
 
                 &:hover {
@@ -204,13 +220,15 @@ main {
             <img src="logo-kapy.png" alt="KAPY">
             <p>KAPY</p>
         </div>
-        <a href="#" class="ca">CA: 78V878bds9a79b9ASB9ADBSADT9ABSD99</a>
+        <div>
+            <button type="button" class="ca">CA: 78V878bds9a79b9ASB9ADBSADT9ABSD99</button>
+        </div>
     </nav>
 
     <main>
         <div class="container">
             <a href="#">
-                <i class="fa-solid fa-cart-shopping fa-fw"></i> Buy Now
+                <img src="jupiter-solana-logo-png_seeklogo.png" alt="Jupiter Solana" /> Buy Now
             </a>
             <a href="#">
                 <i class="fa-brands fa-telegram fa-fw"></i> Telegram
@@ -219,11 +237,22 @@ main {
                 <i class="fa-brands fa-x-twitter fa-fw"></i> Twitter
             </a>
             <a href="#">
-                <i class="fa-solid fa-chart-line fa-fw"></i> Chart
+                <img src="dex-screener-seeklogo.png" alt="DEX Screener" /> Chart
             </a>
         </div>
     </main>
 
 
+    <script>
+        const ca = document.querySelector('.ca');
+        ca.addEventListener('click', () => {
+            navigator.clipboard.writeText('78V878bds9a79b9ASB9ADBSADT9ABSD99').then(() => {
+                ca.textContent = 'Copied!';
+                setTimeout(() => {
+                    ca.textContent = 'CA: 78V878bds9a79b9ASB9ADBSADT9ABSD99';
+                }, 1000);
+            });
+        });
+    </script>
 </body>
 </html>
